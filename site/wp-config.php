@@ -20,21 +20,17 @@
 
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
-//define('DB_NAME', 'gruporalifla');
 define('DB_NAME', 'gruporalifla');
 
 /** MySQL database username */
-//define('DB_USER', 'gruporalifla');
-define('DB_USER', 'gruporalifla');
+define('DB_USER', 'root');
 
 
 /** MySQL database password */
-//define('DB_PASSWORD', 'mu3UmuCabr5dusemazujeceFach7W');
-define('DB_PASSWORD', 'dev1119');
+define('DB_PASSWORD', 'root');
 
 /** MySQL hostname */
-//define('DB_HOST', 'mysql01-farm58.kinghost.net'); 
-define('DB_HOST', 'mysql01-farm58.kinghost.net'); 
+define('DB_HOST', 'localhost'); 
 
 /** Database Charset to use in creating database tables. */
 define('DB_CHARSET', 'utf8mb4');
@@ -84,7 +80,7 @@ $table_prefix  = 'r_';
  *
  * @link https://codex.wordpress.org/Debugging_in_WordPress
  */
-define('WP_DEBUG', false);
+define('WP_DEBUG', true);
 define('RELOCATE',true);
 
 /* That's all, stop editing! Happy blogging. */

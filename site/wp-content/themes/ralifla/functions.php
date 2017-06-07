@@ -39,7 +39,7 @@ function ralifla_menus() {
 }
 add_action( 'init', 'ralifla_menus' );
 
-
+/*
 // Register Widgets Area
 if (function_exists('register_sidebar')) {
 
@@ -96,7 +96,7 @@ if (function_exists('register_sidebar')) {
 }
 add_action( 'widgets_init', 'register_sidebar');
 
-
+*/
 // Register Style
 function ralifla_styles() {
 	wp_enqueue_style( 'ralifla', get_stylesheet_uri(), false);
