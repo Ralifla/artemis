@@ -16,7 +16,7 @@ form > div,
 
 .remover-referencia {
     color: #ec5d5f;
-    text-align: right;
+    text-align: center;
     width: 100%;
     padding: 0 18px;
     cursor: pointer;
@@ -24,4 +24,21 @@ form > div,
 
 .remover-referencia:hover {
     text-decoration: underline;
+    color: #fff;
+}
+.container-referencia{
+	transition: all .3s;
+}
+.remove-ref {
+    background-color: #ec5d5f;
+}
+.container-referencia {
+    padding-bottom: 20px;
+}
+
+@media (max-width: 600px) {
+	.row.content-area.bg-default.page-content.page-img{
+		padding: 10px;
+		margin: 0;
+	}
 }

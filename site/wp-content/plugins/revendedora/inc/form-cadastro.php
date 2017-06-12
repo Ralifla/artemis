@@ -92,13 +92,15 @@
 </form>
 <form id="second-step" style="display:none;">
 	<h3>Dados Pessoais:</h3>
-	<div class="col-md-6 col-xs-12">
-		<label for="rg">RG :</label>
-		<input type="text" name="rg"  placeholder="00000000-0" required>
-	</div>
-	<div class="col-md-6 col-xs-12">
-		<label for="facebook">Usuário no Facebook :</label>
-		<input type="text" name="facebook"  placeholder="Nome completo ou URL do perfíl" required>
+	<div class='clearfix'>
+		<div class="col-md-6 col-xs-12">
+			<label for="rg">RG :</label>
+			<input type="text" name="rg"  placeholder="00000000-0" required>
+		</div>
+		<div class="col-md-6 col-xs-12">
+			<label for="facebook">Usuário no Facebook :</label>
+			<input type="text" name="facebook"  placeholder="Nome cadastrado ou URL do perfíl" required>
+		</div>
 	</div>
 	<div class="referencias clearfix">
 		<h4>Referências<span>(recomendado 3)</span></h4>

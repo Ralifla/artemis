@@ -116,6 +116,13 @@ jQuery(function($) {
 			$(".parceiro").fadeOut("600");
 	});
 	
+	// estilo remover referencia
+	$(document).on("mouseover", ".remover-referencia", function() {
+		$(this).parent().addClass("remove-ref");
+	 }).on('mouseout', '.remover-referencia', function() {
+		 $(this).parent().removeClass("remove-ref");
+	 });
+	
 	// add valores em select de renda 
 	var parentesco = ['Menos que R$1.000,00','Entre R$1.000,00 e R$2.000,00','Entre R$2.000,00 e R$3.000,00','Mais do que R$3.000,00'];
 	addOptionSelect(parentesco,$("select[name='atividade_renda']"));
