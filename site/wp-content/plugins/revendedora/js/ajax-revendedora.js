@@ -66,7 +66,6 @@ jQuery(function($) {
 		var obj = $(elem).parents(".container-endereco");
 		obj = $(obj).find("input");
 		$.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
-			console.log(dados);
             if (!("erro" in dados)) {
             	//Atualiza os campos com os valores da consulta.
             	for(var i in obj){
@@ -106,6 +105,7 @@ jQuery(function($) {
 			dataType:'json',
 			success:function(data){
 				if(data.error != null){
+					$("#cpf").val('');
 					$("#cpf-error").remove();
 					var msg = '<label id="cpf-error" class="error" for="cpf">Este CPF já possui cadastro em nosso sistema</label>';
 					$("#cpf").parent().append(msg);

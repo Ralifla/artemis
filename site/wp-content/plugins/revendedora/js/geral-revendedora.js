@@ -7,6 +7,7 @@ jQuery(function($) {
 	
 	// mascaras
 	$("input[name='cep']").mask("99999-999");
+	$("input[name='cpf']").mask("999999999-99");
 	$("input[name='data_nascimento']").mask("99/99/9999",{placeholder:"dd/mm/aaaa"});
 	$("input[type='tel']").mask("(99) 9999-9999?9").focusout(function(event) {
         var target, phone, element;
@@ -79,9 +80,9 @@ jQuery(function($) {
 	 */
 	
 	// mostra campos do parceiro
-	$("input[name='estado_civil']").on("change",function(){
+	$("select[name='estado_civil']").on("change",function(){
 		if(this.value == "CASADA" || this.value == "AMASIADA")
-			$(".parceiro").fadeIn("600");
+			$(".parceiro").removeAttr("style").fadeIn("600");
 		else
 			$(".parceiro").fadeOut("600");
 	});

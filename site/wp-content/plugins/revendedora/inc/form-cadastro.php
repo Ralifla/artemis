@@ -10,19 +10,22 @@
 	</div>
 	<div class="msg-append">
 		<label for="sexo">Sexo :</label>
-		<select name="referencia_1_parentesco">
-			<option disabled="disabled">--</option>
+		<select name="sexo">
+			<option disabled="disabled" selected>--</option>
 			<option value="FEMININO">Feminino</option>
 			<option value="MASCULINO">Masculino</option>
 		</select>
 	</div>
 	<div class="msg-append">
 		<label for="estado_civil">Estado Civil :</label>
-		<label><input type="radio" name="estado_civil" value="SOLTEIRA">Solteira</label>
-		<label><input type="radio" name="estado_civil" value="CASADA">Casada</label>
-		<label><input type="radio" name="estado_civil" value="DIVORCIADA">Divorciada</label>
-		<label><input type="radio" name="estado_civil" value="VIUVA">Viúva</label>
-		<label><input type="radio" name="estado_civil" value="AMASIADA">Amasiada/Mora Junto:</label>
+		<select name="estado_civil">
+			<option disabled="disabled" selected>--</option>
+			<option value="SOLTEIRA">Solteira</option>
+			<option value="CASADA">Casada</option>
+			<option value="DIVORCIADA">Divorciada</option>
+			<option value="VIUVA">Viúva</option>
+			<option value="AMASIADA">Amasiada/Mora Junto:</option>
+		</select>
 		<div class="parceiro" style="display:none;">
 			<div>
 				<label for="nome_parceiro">Nome do Parceiro:</label>
@@ -36,17 +39,20 @@
 	</div>
 	<div class="msg-append">
 		<label for="residencia">Residencia :</label>
-		<label><input type="radio" name="residencia" value="PROPRIA">Própria</label>
-		<label><input type="radio" name="residencia" value="ALUGADA">Alugada</label>
-		<label><input type="radio" name="residencia" value="CEDIDA">Cedida</label>
-		<label><input type="radio" name="residencia" value="PARENTES">Pais/Parentes</label>
+		<select name="residencia">
+			<option disabled="disabled" selected>--</option>
+			<option value="PROPRIA">Própria</option>
+			<option value="ALUGADA">Alugada</option>
+			<option value="CEDIDA">Cedida</option>
+			<option value="PARENTES">Pais/Parentes</option>
+		</select>
 	</div>
 	<div>
 		<label for="data_nascimento">Data de Nascimento :</label>
 		<input type="text" name="data_nascimento" placeholder="dd/mm/aaaa" required>
 	</div>
 	<div>
-		<label for="tel">Telefone :</label>
+		<label for="telefone">Telefone :</label>
 		<input type="tel" name="telefone" placeholder="(00)00000-00000" required>
 	</div>
 	<div>
@@ -83,7 +89,7 @@
 		<input type="submit" id="send-first-step" value="Enviar">
 	</div>
 </form>
-<form id="second-step">
+<form id="second-step" style="display:none;">
 	<h3>Dados Pessoais:</h3>
 	<div>
 		<label for="rg">RG :</label>
