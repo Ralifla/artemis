@@ -1,12 +1,11 @@
+/*
 var $jQuery = jQuery.noConflict()
 
 'use strict';
 
 ;( function ( document, window, index ) {
 
-    /*
-     * Mascáras (maskedinput.js) 
-     */
+     // Mascáras (maskedinput.js) 
 
     $jQuery(function() {
         $jQuery("#cpf").mask("999999999-99");
@@ -33,10 +32,6 @@ var $jQuery = jQuery.noConflict()
         });
     });
 
-
-     /* Busca CEP 
-     * By Republica Virtual
-     */
 
 
     $jQuery("#cep").blur(function(){
@@ -65,10 +60,6 @@ var $jQuery = jQuery.noConflict()
     });
     
 
-    /* Busca CEP #ee_
-     * By Republica Virtual
-     */
-
     $jQuery("#ee_cep").blur(function(){
                     
         var ee_cep = this.value.replace(/[^0-9]/, "");
@@ -95,9 +86,8 @@ var $jQuery = jQuery.noConflict()
     });
 
 
-    /* Metodos de validação
-     * Verifica CPF
-     */
+    // Metodos de validação
+     // Verifica CPF
 
     $jQuery.validator.addMethod("verificaCPF", function(value, element) {
 
@@ -142,9 +132,7 @@ var $jQuery = jQuery.noConflict()
     });
 
 
-    /*
-     * Verifica se > 21
-     */
+     // Verifica se > 21
     
 
     $jQuery.validator.addMethod("verificaIdade", function(value, element) {
@@ -222,9 +210,7 @@ var $jQuery = jQuery.noConflict()
         return true;
     });
 
-    /* 
-     * Regras validate.js
-     */
+    // Regras validate.js
 
 
     $jQuery('#form').validate({
@@ -271,9 +257,7 @@ var $jQuery = jQuery.noConflict()
     });
 
 
-    /* 
-     * Mensagens padrão validate.js
-     */
+    // Mensagens padrão validate.js
 
 
     $jQuery.extend($jQuery.validator.messages, {
@@ -284,9 +268,8 @@ var $jQuery = jQuery.noConflict()
 
 
 
-    /* Campos extras para quando usuário clicar em input[type:radio] 
-     * : Obs Melhorar algoritmo
-     */
+    // Campos extras para quando usuário clicar em input[type:radio] 
+     // : Obs Melhorar algoritmo
 
 
     $jQuery(document).ready(function(){
@@ -348,9 +331,8 @@ var $jQuery = jQuery.noConflict()
     });
 
 
-    /* Média Salarial
-     * by: Chris Coyer, css-tricks.com
-     */
+    // Média Salarial
+     // by: Chris Coyer, css-tricks.com
 
 
     var rangeSlider = function(){
@@ -379,3 +361,4 @@ var $jQuery = jQuery.noConflict()
 
 
 }( document, window, 0 ));  ''
+*/
