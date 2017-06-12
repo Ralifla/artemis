@@ -79,6 +79,26 @@ jQuery(function($) {
 	 * manipulações de html com js
 	 */
 	
+	// mostra campos não obrigatórios
+	$(".touggle-input").on("change",function(){
+		var obj = $(this).parents(".msg-append").find(".campos-opcionais");
+		if(this.value == "SIM"){
+			$(obj).removeAttr("style").fadeIn("600");
+		}else{
+			$(obj).fadeOut("600");
+			var input = $(this).parents(".msg-append").find(".campos-opcionais").find("input,select");
+			for(var i in input){
+				if(i.replace(/\D/g, '')){
+					if(input[i].tagName == "SELECT"){
+						$(input[i]).val('--').trigger("change");
+					}else{
+						$(input[i]).val('');
+					}
+        		} else break;
+			}
+		}
+	});
+	
 	// mostra campos do parceiro
 	$("select[name='estado_civil']").on("change",function(){
 		if(this.value == "CASADA" || this.value == "AMASIADA")
@@ -87,9 +107,13 @@ jQuery(function($) {
 			$(".parceiro").fadeOut("600");
 	});
 	
+	// add valores em select de renda 
+	var parentesco = ['Menos que R$1.000,00','Entre R$1.000,00 e R$2.000,00','Entre R$2.000,00 e R$3.000,00','Mais do que R$3.000,00'];
+	addOptionSelect(parentesco,$("select[name='atividade_renda']"));
+
 	// add parentesco em select de referencias
 	var parentesco = ['Mãe/Pai','Irmão(a)','Genro/Nora','Sogro(a)','Filho(a)','Amigo Próximo','Vizinho','Colega de Trabalho','Outro'];
-	addOptionSelect(parentesco,$("#referencia-1"));
+	addOptionSelect(parentesco,$("select[name='referencia_1_parentesco']"));
 	
 	// add novo campo de referencia
 	$("#add-referencia").on("click",function(){
@@ -122,7 +146,6 @@ jQuery(function($) {
 			$(obj).remove();
 		});
 	})
-	
 	
 	// appenda options em select
 	function addOptionSelect(option, element){

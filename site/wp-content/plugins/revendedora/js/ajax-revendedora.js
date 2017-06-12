@@ -1,7 +1,5 @@
 jQuery(function($) {
 	
-	//second_step();
-	
 	// primeira parte do cadastro
 	$("#first-step").validate({
 		 rules: {
@@ -44,6 +42,37 @@ jQuery(function($) {
 	        }
 	});
 	
+	// segunda parte do cadastro
+	$("#second-step").validate({
+		 rules: {
+			 	rg: {required: true, minlength: 8},
+			 	facebook: {required: true}
+	        },errorPlacement: function(error, element) {
+	            if(element.is(":radio") || element.is(":checkbox"))
+	                error.appendTo( element.parents('.msg-append') );
+	            else
+	            	error.insertAfter(element);
+	        },
+	        submitHandler: function (form,event) {
+				event.preventDefault();
+				var dataSerialize = $('form#second-step').serializeArray();
+				dataSerialize.push({ name: "path", value: ajax_url.path });
+				
+				$.ajax({
+					url: ajax_url.second_step,
+					type: "POST",
+					dataType: "json",
+					data: dataSerialize,
+					success: function(data){
+						if(data.error == null){
+							// cadastro finalizado
+						}else{
+							// erro ao finalizar cadastro
+						}
+				});
+	        }
+	});
+	
 	// validacao do cpf on blur
 	$("#cpf").on("blur",function(){
 		var cpf = this.value.replace(/\D/g, '');
@@ -59,6 +88,7 @@ jQuery(function($) {
 	// segunda etapa do cadastro
 	function second_step(){
 		$("#first-step").fadeOut("750");
+		$("#second-step").removeAttr("style").fadeIn();
 	}
 	
 	// webservise de validação do CEP

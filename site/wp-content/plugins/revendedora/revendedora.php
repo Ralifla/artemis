@@ -25,7 +25,8 @@ function wptuts_scripts_basic(){
 	wp_localize_script( 'ajax', 'ajax_url',array( 
 		'path'       => getcwd(),
 		'check_cpf'  => plugins_url( '/inc/check-cpf.php', __FILE__ ),
-		'first_step' => plugins_url( '/inc/first-step.php', __FILE__ )
+		'first_step' => plugins_url( '/inc/first-step.php', __FILE__ ),
+		'second_step' => plugins_url( '/inc/second-step.php', __FILE__ )
 	));
 }add_action( 'wp_enqueue_scripts', 'wptuts_scripts_basic' );
 

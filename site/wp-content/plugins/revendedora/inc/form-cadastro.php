@@ -96,10 +96,6 @@
 		<input type="text" name="rg"  placeholder="00000000-0" required>
 	</div>
 	<div>
-		<label for="fone_residencial">Telefone Residencial :</label>
-		<input type="tel" name="fone_residencial"  placeholder="(00)00000-00000" required>
-	</div>
-	<div>
 		<label for="facebook">Usuário no Facebook :</label>
 		<input type="text" name="facebook"  placeholder="Nome completo ou URL do perfíl" required>
 	</div>
@@ -108,7 +104,7 @@
 		<div class="container-referencia">
 			<div>
 				<label for="referencia_1_nome">Nome :</label>
-				<input type="text" name="referencia_1_nome" id="referencia-1" placeholder="Nome Completo" required>
+				<input type="text" name="referencia_1_nome" id="referencia-1" placeholder="Nome Completo">
 			</div>
 			<div>
 				<label for="referencia_1_parentesco">Parentesco :</label>
@@ -116,10 +112,65 @@
 			</div>
 			<div>
 				<label for="referencia_1_fone">Telefone :</label>
-				<input type="tel" name="referencia_1_fone" placeholder="(00)00000-00000" required>
+				<input type="tel" name="referencia_1_fone" placeholder="(00)00000-00000">
 			</div>
 		</div>
 		<span id="add-referencia">adicionar referencia</span>
+	</div>
+	<div class="msg-append">
+		<label for="atividade_profissional">Deseja adicionar atividade profissional?</label>
+		<labbel><input type="radio" name="atividade_profissional" class="touggle-input" value="SIM">Sim</labbel>
+		<labbel><input type="radio" name="atividade_profissional" class="touggle-input" value="NÃO">Não</labbel>
+		<div class="campos-opcionais" style="display:none;">
+			<div>
+				<label for="atividade_local">Local de Trabalho :</label>
+				<input type="text" name="local_trabalho" placeholder="Nome da empresa">
+			</div>
+			<div>
+				<label for="atividade_funcao">Função :</label>
+				<input type="text" name="funcao_trabalho" placeholder="Vendedora, Enfermeira, Etc">
+			</div>
+			<div>
+				<label for="atividade_renda">Renda Média :</label>
+				<select name="atividade_renda"></select>
+			</div>
+		</div>
+	</div>
+	<div class="msg-append">
+		<label for="atividade_profissional">A maleta deverá ser entregue em sua casa?</label>
+		<labbel><input type="radio" name="atividade_profissional" class="touggle-input" value="SIM">Sim</labbel>
+		<labbel><input type="radio" name="atividade_profissional" class="touggle-input" value="NÃO">Não</labbel>
+		<div class="campos-opcionais" style="display:none;">
+			<div class="container-endereco">
+				<div>
+					<label for="entrega_cep">CEP :</label>
+					<input type="text" name="entrega_cep" id="cep" placeholder="00000-00000">
+				</div>
+				<div>
+					<label for="entrega_numero">Número :</label>
+					<input type="numeric" name="entrega_numero" placeholder="Número">
+				</div>
+				<div>
+					<label for="entrega_logradouro">Logradouro :</label>
+					<input type="text" name="entrega_logradouro" placeholder="Rua">
+				</div>
+				<div>
+					<label for="entrega_bairro">Bairro :</label>
+					<input type="text" name="entrega_bairro" placeholder="Bairro">
+				</div>
+				<div>
+					<label for="entrega_localidade">Cidade :</label>
+					<input type="text" name="entrega_localidade" placeholder="Cidade" readonly>
+				</div>
+				<div>
+					<label for="entrega_uf">Estado :</label>
+					<input type="text" name="entrega_uf" placeholder="Estado" readonly>
+				</div>
+			</div>
+		</div>	
+	</div>
+	<div>
+		<input type="submit" id="second-first-step" value="Enviar">
 	</div>
 </form>
 <?php  ?>
