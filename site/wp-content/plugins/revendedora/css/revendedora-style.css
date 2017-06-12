@@ -1,0 +1,27 @@
+.row.content-area.bg-default.page-content.page-img {
+    margin: 0 auto;
+}
+
+label.error {
+    position: absolute;
+    left: 16px;
+    bottom: 0;
+}
+
+form > div,
+.container-endereco > div{
+    position: relative !important;
+    padding-bottom: 25px;
+}
+
+.remover-referencia {
+    color: #ec5d5f;
+    text-align: right;
+    width: 100%;
+    padding: 0 18px;
+    cursor: pointer;
+}
+
+.remover-referencia:hover {
+    text-decoration: underline;
+}

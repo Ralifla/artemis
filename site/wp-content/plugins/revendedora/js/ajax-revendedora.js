@@ -1,5 +1,5 @@
 jQuery(function($) {
-	
+	second_step();
 	// primeira parte do cadastro
 	$("#first-step").validate({
 		 rules: {
@@ -69,6 +69,7 @@ jQuery(function($) {
 						}else{
 							// erro ao finalizar cadastro
 						}
+					}
 				});
 	        }
 	});

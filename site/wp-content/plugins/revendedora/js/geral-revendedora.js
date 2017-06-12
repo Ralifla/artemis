@@ -79,6 +79,15 @@ jQuery(function($) {
 	 * manipulações de html com js
 	 */
 	
+	$("input[readonly]").on("click",function(){
+		var obj = this;
+		var html = '<label class="error">Este Campo é preenchido automaticamente através do CEP</label>';
+		$(obj).parent().append(html);
+		setTimeout(function(){
+			$(obj).parent().find(".error").fadeOut();
+		},3 * 1000);
+	})
+	
 	// mostra campos não obrigatórios
 	$(".touggle-input").on("change",function(){
 		var obj = $(this).parents(".msg-append").find(".campos-opcionais");
@@ -119,17 +128,17 @@ jQuery(function($) {
 	$("#add-referencia").on("click",function(){
 		var count = $(".referencias .container-referencia").length;
 		count++;
-		var html = '<div class="container-referencia">';
-				html += '<div>';
-					html += '<label class="remover-referencia">remover</label>';
+		var html = '<div class="container-referencia col-xs-12">';
+				html += '<label class="remover-referencia">remover</label>';
+				html += '<div class="col-xs-12">';
 					html += '<label for="referencia_'+count+'_nome">Nome :</label>';
 					html += '<input type="text" name="referencia_'+count+'_nome"  placeholder="Nome Completo" required>';
 				html += '</div>';
-				html += '<div>';
+				html += '<div class="col-xs-12">';
 					html += '<label for="referencia_'+count+'_parentesco">Parentesco :</label>';
 					html += '<select name="referencia_'+count+'_parentesco"></select>';
 				html += '</div>'
-				html += '<div>';
+				html += '<div class="col-xs-12">';
 					html += '<label for="referencia_'+count+'_fone">Telefone :</label>';
 					html += '<input type="tel" name="referencia_'+count+'_fone" placeholder="(00)00000-00000" required>';
 				html += '</div>'
