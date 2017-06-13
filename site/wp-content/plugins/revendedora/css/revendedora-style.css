@@ -35,7 +35,67 @@ form > div,
 .container-referencia {
     padding-bottom: 20px;
 }
-
+.drang-n-drop {
+    padding: 15px 0;
+    margin: 25px 0;
+    transition: all .3s;
+}
+.drang-n-drop.is-dragover {
+    background-color: #fde7e7;
+    padding: 15px 30px;
+}
+.custom-file-upload {
+    padding: 10px 17px;
+    background-color: #fa5658;
+    display: inline-block;
+    color: #fff;
+    cursor: pointer;
+    transition: all .3s;
+    opacity: .9;
+}
+.custom-file-upload:hover{
+	background-color: #de5658;
+	opacity: 1;
+}
+.content-input {
+    display: block;
+    text-align: center;
+    border: 2px dashed;
+    padding: 25px 0;
+}
+.content-input > span {
+    display: block;
+}
+.drang-n-drop.retro .content-input {
+    border: none;
+}
+.drang-n-drop.retro span {
+    display: none;
+}
+.content-input > span.error{
+	color: red;
+}
+#loading-gif {
+    opacity: 0;
+    visibility: hidden;
+    height: 0;
+    transition: all .3s;
+}
+.status-loading #loading-gif {
+    position: fixed;
+    z-index: 9999;
+    left: calc(50% - 100px);
+    opacity: 1;
+    visibility: visible;
+    height: auto;
+}
+form{
+	opacity: 1;
+	transition: all .3s;
+}
+.status-loading form {
+    opacity: .1;
+}
 @media (max-width: 600px) {
 	.row.content-area.bg-default.page-content.page-img{
 		padding: 10px;

@@ -1,5 +1,5 @@
 jQuery(function($) {
-	second_step();
+	
 	// primeira parte do cadastro
 	$("#first-step").validate({
 		 rules: {
@@ -22,6 +22,8 @@ jQuery(function($) {
 	        },
 	        submitHandler: function (form,event) {
 				event.preventDefault();
+				placeLoading();
+				
 				var dataSerialize = $('form#first-step').serializeArray();
 				dataSerialize.push({ name: "path", value: ajax_url.path });
 				
@@ -31,14 +33,25 @@ jQuery(function($) {
 					dataType: "json",
 					data: dataSerialize,
 					success: function(data){
+						var html;
 						if(data.error == null){
 							// inicia segundo etapa
+							var html = "<p>A primeira parte do cadastro foi concluída com sucesso!</p>"
+							$("#cadastro-alert").removeClass().addClass("alert alert-success");
 							second_step();
 						}else{
 							// erro ao cadastrar
+							var html = "<strong>Ops!</strong><p>Ocorreu um erro ao realizar o cadastro, tente novamente</p>"
+							$("#cadastro-alert").removeClass().addClass("alert alert-danger");
 						}
+						// appenda msg e faz scroll
+						$("#cadastro-alert").html(html);
+						$('html,body').animate({
+					        scrollTop: $("#cadastro-alert").offset().top
+				        },'slow');
 					}
 				});
+				removeLoading();
 	        }
 	});
 	
@@ -55,14 +68,18 @@ jQuery(function($) {
 	        },
 	        submitHandler: function (form,event) {
 				event.preventDefault();
-				var dataSerialize = $('form#second-step').serializeArray();
-				dataSerialize.push({ name: "path", value: ajax_url.path });
+				placeLoading();
+				
+				var formData = new FormData($("#second-step")[0]);
+				formData.append("path", ajax_url.path);
 				
 				$.ajax({
 					url: ajax_url.second_step,
 					type: "POST",
 					dataType: "json",
-					data: dataSerialize,
+			        contentType: false,
+			        processData: false,
+					data: formData,
 					success: function(data){
 						if(data.error == null){
 							// cadastro finalizado
@@ -71,6 +88,7 @@ jQuery(function($) {
 						}
 					}
 				});
+				removeLoading();
 	        }
 	});
 	
@@ -94,6 +112,7 @@ jQuery(function($) {
 	
 	// webservise de validação do CEP
 	function fill_cep_data(cep, elem){
+		placeLoading();
 		var obj = $(elem).parents(".container-endereco");
 		obj = $(obj).find("input");
 		$.getJSON("https://viacep.com.br/ws/"+ cep +"/json/?callback=?", function(dados) {
@@ -109,8 +128,7 @@ jQuery(function($) {
             			}
             		} else break;
             	}
-            }
-            else {
+            }else{
             	for(var i in obj){
             		if(i.replace(/\D/g, ''))
             			obj[i].value = "";
@@ -120,6 +138,7 @@ jQuery(function($) {
 				var msg = '<label id="cep-error" class="error" for="cep">CEP não encontrado.</label>';
 				$("#cep").parent().append(msg);
             }
+            removeLoading();
         });
 	}
 	
@@ -143,5 +162,14 @@ jQuery(function($) {
 				}
 			}
 		});
+	}
+	
+	// add estado de loading
+	function placeLoading(){
+		$(".page-container").addClass("status-loading");
+	}
+	// remove estado de loading
+	function removeLoading(){
+		$(".page-container").removeClass("status-loading");
 	}
 });

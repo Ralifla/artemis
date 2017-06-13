@@ -17,6 +17,7 @@ function form_creation(){
 
 // js files
 function wptuts_scripts_basic(){
+	wp_enqueue_style( 'loading', plugins_url( '/css/ring.css', __FILE__ ));
 	wp_enqueue_style( 'revendedora-style', plugins_url( '/css/revendedora-style.css', __FILE__ ));
 	
 	wp_enqueue_script( 'geral', plugins_url( '/js/geral-revendedora.js', __FILE__ ), array( 'jquery' ));

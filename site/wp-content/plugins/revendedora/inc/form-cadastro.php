@@ -1,5 +1,7 @@
 <?php  ?>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<div id="cadastro-alert" class="alert hide"></div>
+<div id="loading-gif" class='uil-ring-css' style='transform:scale(0.84);'><div></div></div>
 <form id="first-step" class="row">
 	<div class="col-md-6 col-xs-12">
 		<label for="cpf">CPF :</label>
@@ -26,7 +28,7 @@
 			</div>
 			<div class="col-md-6 col-xs-12">
 				<label for="telefone_parceiro">Telefone :</label>
-				<input type="tel" name="telefone_parceiro" placeholder="(00)00000-00000" required>
+				<input type="tel" name="telefone_parceiro" placeholder="(00)00000-00000">
 			</div>
 		</div>
 	</div>
@@ -142,9 +144,9 @@
 		</div>
 	</div>
 	<div class="msg-append clearfix">
-		<label for="atividade_profissional">A maleta deverá ser entregue em sua casa?</label>
-		<labbel><input type="radio" name="atividade_profissional" class="touggle-input" value="SIM">Sim</labbel>
-		<labbel><input type="radio" name="atividade_profissional" class="touggle-input" value="NÃO">Não</labbel>
+		<label for="entega_casa">A maleta deverá ser entregue em sua casa?</label>
+		<labbel><input type="radio" name="entega_casa" class="touggle-input" value="SIM">Sim</labbel>
+		<labbel><input type="radio" name="entega_casa" class="touggle-input" value="NÃO">Não</labbel>
 		<div class="campos-opcionais" style="display:none;">
 			<div class="container-endereco">
 				<div class="col-md-8 col-xs-12">
@@ -173,6 +175,20 @@
 				</div>
 			</div>
 		</div>	
+	</div>
+	<div class="msg-append clearfix">
+		<label for="documentacao_enviada">Deseja enviar a documentação?</label>
+		<labbel><input type="radio" name="documentacao_enviada" class="touggle-input" value="SIM">Sim</labbel>
+		<labbel><input type="radio" name="documentacao_enviada" class="touggle-input" value="NÃO">Não</labbel>
+		<div class="campos-opcionais" style="display:none;">
+			<div class="drang-n-drop col-xs-12">
+				<div class="content-input">
+					<label for="file_upload" class="custom-file-upload"> Escolha seus arquivos... </label>
+					<input type="file" name="file[]" id="file_upload"  value="send files" multiple accept="image/*">
+					<span>ou arraste-os aqui</span>
+				</div>
+			</div>
+		</div>
 	</div>
 	<div>
 		<input type="submit" id="second-first-step" value="Enviar">

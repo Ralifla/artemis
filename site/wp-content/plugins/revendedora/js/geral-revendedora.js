@@ -1,7 +1,9 @@
 jQuery(function($) {
 	// sobrescreve mensagens padrão do validate
 	$.extend($.validator.messages, {
-        required: "Por gentileza preencha este campo.",
+		maxlength: jQuery.validator.format("Digite no maximo {0} caracteres."),
+	    minlength: jQuery.validator.format("Digite no minimo {0} caracteres."),
+		required: "Por gentileza preencha este campo.",
         email: "Ops, digite um e-mail válido."
     });
 	
@@ -79,6 +81,44 @@ jQuery(function($) {
 	 * manipulações de html com js
 	 */
 	
+	// drag 'n drop
+	var isAdvancedUpload = function() {
+		var div = document.createElement('div');
+		return (('draggable' in div) || ('ondragstart' in div && 'ondrop' in div)) && 'FormData' in window && 'FileReader' in window;
+	}();
+	if (isAdvancedUpload) {
+		var droppedFiles = false;
+		$('.drang-n-drop').on('drag dragstart dragend dragover dragenter dragleave drop', function(e) {
+			e.preventDefault();
+		    e.stopPropagation();
+		})
+		.on('dragover dragenter', function() {
+			$('.drang-n-drop').addClass('is-dragover');
+		})
+		.on('dragleave dragend drop', function() {
+			$('.drang-n-drop').removeClass('is-dragover');
+		})
+		.on('drop', function(e) {
+			$(".content-input span").removeClass("error");
+		    droppedFiles = e.originalEvent.dataTransfer.files;
+		    var msg;
+		    if(droppedFiles.length == 1){
+		    	msg = droppedFiles[0].name;
+		    }else if(droppedFiles.length <= 4){
+		    	msg = droppedFiles.length + " arquivos enviados";
+		    }else{
+		    	$(".content-input span").addClass("error");
+		    	msg = "Ops! Envie no máximo 4 arquivos";
+		    }
+		    $("#file_upload").prop("files", droppedFiles);
+		    $(".content-input span").html(msg);
+		});
+	}else{
+		// retrocompatibilidade do drag n' drop
+		$(".drang-n-drop").addClass("retro");
+	}
+	
+	// msg para inputs com readonly
 	$("input[readonly]").on("click",function(){
 		var obj = this;
 		var html = '<label class="error">Este Campo é preenchido automaticamente através do CEP</label>';
