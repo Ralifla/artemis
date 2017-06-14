@@ -110,7 +110,7 @@ jQuery(function($) {
 		$("#second-step").removeAttr("style").fadeIn();
 	}
 	
-	// webservise de validação do CEP
+	// webservise de validação do cep
 	function fill_cep_data(cep, elem){
 		placeLoading();
 		var obj = $(elem).parents(".container-endereco");
@@ -142,7 +142,7 @@ jQuery(function($) {
         });
 	}
 	
-	// verifica se CPF possui cadastro no banco
+	// verifica se cpf possui cadastro no banco
 	function cpf_cadastrado(cpf){
 		$.ajax({
 			url : ajax_url.check_cpf,

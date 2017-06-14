@@ -122,10 +122,11 @@ jQuery(function($) {
 	$("input[readonly]").on("click",function(){
 		var obj = this;
 		var html = '<label class="error">Este Campo é preenchido automaticamente através do CEP</label>';
-		$(obj).parent().append(html);
+		$(obj).parent().find("label.error").remove();
+		$(obj).after(html);
 		setTimeout(function(){
-			$(obj).parent().find(".error").fadeOut();
-		},3 * 1000);
+			$(obj).parent().find("label.error").fadeOut();
+		},5 * 1000);
 	})
 	
 	// mostra campos não obrigatórios
